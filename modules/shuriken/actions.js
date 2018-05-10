@@ -6,25 +6,19 @@ import {
 import type {
   Shuriken,
   Shoot,
-  Move,
-  Delete
+  Update,
 } from './types'
 
-export const SHOOT =  'shuriken/SHOOT'
-export const MOVE =   'shuriken/MOVE'
-export const DELETE = 'shuriken/DELETE'
+export const SHOOT =    'shuriken/SHOOT'
+export const UPDATE =   'shuriken/UPDATE'
 
 export const shoot = (posX: number, posY: number, velocity: number): Shoot => {
   return {
     type: SHOOT,
-    payload: { id: Date.now().toString(), posX, posY: Dimensions.get('screen').height, velocity: +velocity, rotation: 0 }
+    payload: { id: Date.now().toString(), posX, posY: Dimensions.get('screen').height - 10, velocity: +velocity, rotation: 0 }
   }
 }
 
-export const move = (shuriken: Shuriken): Move => {
-  return { type: MOVE, payload: shuriken }
-}
-
-export const deleteOne = (id: string): Delete => {
-  return { type: DELETE, payload: id }
+export const update = (shurikens: Shuriken[]): Update => {
+  return { type: UPDATE, payload: shurikens }
 }
