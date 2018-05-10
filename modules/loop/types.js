@@ -8,7 +8,8 @@ export type Stop = {
 }
 
 export type Tick = {
-  +type: 'loop/TICK'
+  +type: 'loop/TICK',
+  +payload: number
 }
 
 export type GameAction =

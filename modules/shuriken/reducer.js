@@ -1,7 +1,6 @@
 // @flow
 import * as R from 'ramda'
 
-import { findIndex } from '../../helpers/array'
 import * as shurikenActions from './actions'
 import type {
   ShurikenState,

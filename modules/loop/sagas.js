@@ -6,9 +6,10 @@ import * as loopActions from './actions'
 import type { Tick } from './types'
 
 function createChannel() {
+  let counter = 0
   return eventChannel(emitter => {
     function loop() {
-      emitter(1)
+      emitter(counter++)
       requestIdleCallback(loop)
     }
     requestIdleCallback(loop)
@@ -20,7 +21,7 @@ export function* startLoop(): Saga<*> {
   const chan = yield call(createChannel)
   while (true) {
     const x = yield take(chan)
-    yield put(loopActions.tick())
+    yield put(loopActions.tick(x))
   }
 }
 

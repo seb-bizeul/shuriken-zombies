@@ -15,8 +15,8 @@ export function* updateUI(): Saga<*> {
   const updatedShurikens = shurikens
     .map(shuriken => ({
       ...shuriken,
-      posY: shuriken.posY - 10,
-      rotation: shuriken.rotation + 10
+      posY: shuriken.posY - 15,
+      rotation: shuriken.rotation + 15
     }))
     .filter(shuriken => shuriken.posY >= 0)
   yield put(shurikenActions.update(updatedShurikens))
