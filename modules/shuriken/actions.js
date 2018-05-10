@@ -12,10 +12,18 @@ import type {
 export const SHOOT =    'shuriken/SHOOT'
 export const UPDATE =   'shuriken/UPDATE'
 
-export const shoot = (posX: number, posY: number, velocity: number): Shoot => {
+const startPosition = Dimensions.get('screen').height - 10
+
+export const shoot = (posX: number, velocity: number): Shoot => {
   return {
     type: SHOOT,
-    payload: { id: Date.now().toString(), posX, posY: Dimensions.get('screen').height - 10, velocity: +velocity, rotation: 0 }
+    payload: {
+      id: Date.now().toString(),
+      posX,
+      posY: startPosition,
+      velocity: +velocity,
+      rotation: 0
+    }
   }
 }
 

@@ -10,18 +10,18 @@ import * as shurikenActions from './actions'
 import * as shurikenSelectors from './selectors'
 import type { Shoot, Shuriken } from './types'
 
-export function* computeShurikenPositions(): Saga<*> {
+export function* updateUI(): Saga<*> {
   const shurikens = yield select(shurikenSelectors.getAll)
-  const actions = shurikens
+  const updatedShurikens = shurikens
     .map(shuriken => ({
       ...shuriken,
       posY: shuriken.posY - 10,
       rotation: shuriken.rotation + 10
     }))
     .filter(shuriken => shuriken.posY >= 0)
-  yield put(shurikenActions.update(actions))
+  yield put(shurikenActions.update(updatedShurikens))
 }
 
 export function* root(): Saga<*> {
-  yield takeEvery(loop.actions.TICK, computeShurikenPositions)
+  yield takeEvery(loop.actions.TICK, updateUI)
 }

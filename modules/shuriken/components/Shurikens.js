@@ -9,15 +9,17 @@ export type ShurikensProps = {
   shurikens: ShurikenT[]
 }
 
-export default function Shurikens({ shurikens }: ShurikensProps) {
+export default class Shurikens extends React.Component<ShurikensProps> {
 
-  const renderShuriken = (shuriken) => {
+  renderShuriken(shuriken: ShurikenT) {
     return <Shuriken key={shuriken.id} {...shuriken}/>
   }
 
+  render() {
   return (
     <View style={{ flex: 1 }}>
-      { shurikens.map(renderShuriken) }
+      { this.props.shurikens.map(this.renderShuriken) }
     </View>
   )
+  }
 }

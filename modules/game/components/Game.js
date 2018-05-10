@@ -10,7 +10,7 @@ type Props = {
   start: typeof loop.actions.start
 }
 
-export class Root extends React.Component<Props> {
+export class Game extends React.Component<Props> {
   componentDidMount() {
     this.props.start()
   }
@@ -28,7 +28,7 @@ export class Root extends React.Component<Props> {
 export default connect(
   null,
   { start: loop.actions.start }
-)(Root)
+)(Game)
 
 const styles = StyleSheet.create({
   container: {

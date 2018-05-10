@@ -16,15 +16,17 @@ export type ShurikenProps = $ReadOnly<{
   id: string
 }>
 
-export default function Shuriken({ posX, posY, rotation }: ShurikenProps) {
-  return (
-    <View style={[styles.container, { top: posY, left: posX, transform: [{ rotate: `${rotation}deg` }] }]}>
-      <Image
-        source={shuriken}
-        cache='force-cache'
-        style={{ width: 20, height: 20 }}/>
-    </View>
-  )
+export default class Shuriken extends React.PureComponent<ShurikenProps> {
+  render() {
+    const { posY, posX, rotation } = this.props
+    return (
+      <View style={[styles.container, { top: posY, left: posX, transform: [{ rotate: `${rotation}deg` }] }]}>
+        <Image
+          source={shuriken}
+          style={{ width: 20, height: 20 }}/>
+      </View>
+    )
+  }
 }
 
 const styles = StyleSheet.create({

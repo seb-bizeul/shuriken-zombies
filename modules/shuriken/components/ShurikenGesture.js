@@ -9,7 +9,7 @@ import {
 import type { Shuriken } from '../types'
 
 export type ShurikenGestureProps = {
-  shoot: (number, number, number) => any
+  shoot: (number, number) => any
 }
 
 export default class ShurikenGesture extends React.Component<ShurikenGestureProps> {
@@ -28,7 +28,7 @@ export default class ShurikenGesture extends React.Component<ShurikenGestureProp
   }
 
   handleRelease = (evt: any, gestureState: any) => {
-    this.props.shoot(gestureState.moveX, gestureState.moveY, gestureState.vy)
+    this.props.shoot(gestureState.moveX, gestureState.vy)
   }
 
   render() {

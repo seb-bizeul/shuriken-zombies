@@ -9,9 +9,9 @@ function createChannel() {
   return eventChannel(emitter => {
     function loop() {
       emitter(1)
-      requestAnimationFrame(loop)
+      requestIdleCallback(loop)
     }
-    requestAnimationFrame(loop)
+    requestIdleCallback(loop)
     return () => {}
   })
 }
