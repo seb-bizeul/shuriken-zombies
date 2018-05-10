@@ -17,6 +17,6 @@ export const stop = (): Stop => {
   return { type: STOP }
 }
 
-export const tick = (): Tick => {
-  return { type: TICK }
+export const tick = (counter: number): Tick => {
+  return { type: TICK, payload: counter }
 }
