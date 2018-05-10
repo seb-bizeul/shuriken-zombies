@@ -17,7 +17,7 @@ export default function Shurikens({ shurikens }: ShurikensProps) {
 
   return (
     <View style={{ flex: 1 }}>
-      {/* { shurikens.map(renderShuriken) } */}
+      { shurikens.map(renderShuriken) }
     </View>
   )
 }

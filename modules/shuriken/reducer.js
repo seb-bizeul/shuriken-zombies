@@ -20,7 +20,7 @@ const shoot = (state, action) => {
 
 const move = (state, action) => {
   return findIndex(s => s.id === action.payload.id, state.shurikens)
-    .map(idx => R.lensIndex(idx))
+    .map(idx => R.lensPath(['shurikens', idx]))
     .map(lens => R.set(lens, action.payload, state))
     .getOrElse(state)
 }
