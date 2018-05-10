@@ -18,11 +18,8 @@ const shoot = (state, action) => {
   return R.set(shurikens, state.shurikens.concat(action.payload), state)
 }
 
-const move = (state, action) => {
-  return findIndex(s => s.id === action.payload.id, state.shurikens)
-    .map(idx => R.lensPath(['shurikens', idx]))
-    .map(lens => R.set(lens, action.payload, state))
-    .getOrElse(state)
+const update = (state, action) => {
+  return R.set(shurikens, action.payload, state)
 }
 
 const deleteOne = (state, action) => {
@@ -31,9 +28,8 @@ const deleteOne = (state, action) => {
 
 export default function shurikenReducer(state: ShurikenState = initialState, action: ShurikenAction) {
   switch (action.type) {
-    case shurikenActions.SHOOT:   return shoot(state, action)
-    case shurikenActions.MOVE:    return move(state, action)
-    case shurikenActions.DELETE:  return deleteOne(state, action)
+    case shurikenActions.SHOOT:     return shoot(state, action)
+    case shurikenActions.UPDATE:    return update(state, action)
     default: return state
   }
 }

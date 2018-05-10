@@ -18,17 +18,11 @@ export type Shoot = {
   +payload: Shuriken
 }
 
-export type Move = {
-  +type: 'shuriken/MOVE',
-  +payload: Shuriken
-}
-
-export type Delete = {
-  +type: 'shuriken/DELETE',
-  +payload: string
+export type Update = {
+  +type: 'shuriken/UPDATE',
+  +payload: Shuriken[]
 }
 
 export type ShurikenAction =
   Shoot |
-  Move  |
-  Delete
+  Update
