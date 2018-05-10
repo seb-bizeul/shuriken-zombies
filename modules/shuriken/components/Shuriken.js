@@ -21,6 +21,7 @@ export default function Shuriken({ posX, posY, rotation }: ShurikenProps) {
     <View style={[styles.container, { top: posY, left: posX, transform: [{ rotate: `${rotation}deg` }] }]}>
       <Image
         source={shuriken}
+        cache='force-cache'
         style={{ width: 20, height: 20 }}/>
     </View>
   )
