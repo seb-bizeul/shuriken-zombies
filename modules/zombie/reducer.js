@@ -1,7 +1,7 @@
 // @flow
 import * as R from 'ramda'
 
-import * as shurikenActions from './actions'
+import * as zombieActions from './actions'
 import type {
   ZombieState,
   ZombieAction
@@ -22,7 +22,7 @@ const update = (state, action) => {
 
 export default function zombieReducer(state: ZombieState = initialState, action: ZombieAction) {
   switch (action.type) {
-    case shurikenActions.UPDATE: return update(state, action)
+    case zombieActions.UPDATE: return update(state, action)
     default: return state
   }
 }
