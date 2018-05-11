@@ -12,7 +12,7 @@ export default class App extends React.Component<{}> {
       <View style={styles.container}>
         <StatusBar hidden={true}/>
         <Provider store={root.store}>
-          <game.components.Game/>
+          <game.containers.GameContainer/>
         </Provider>
       </View>
     )

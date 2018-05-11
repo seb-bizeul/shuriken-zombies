@@ -8,12 +8,12 @@ import zombie from '../../zombie'
 import loop from '../../loop'
 import type { Zombie } from '../../zombie/types'
 
-type Props = {
+export type GameProps = {
   start: typeof loop.actions.start,
   zombies: Zombie[]
 }
 
-export class Game extends React.Component<Props> {
+export default class Game extends React.Component<GameProps> {
   componentDidMount() {
     this.props.start()
   }
@@ -33,16 +33,9 @@ export class Game extends React.Component<Props> {
   }
 }
 
-export default connect(
-  state => ({
-    zombies: state.zombie.zombies
-  }),
-  { start: loop.actions.start }
-)(Game)
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'cyan'
-  },
+  }
 })
