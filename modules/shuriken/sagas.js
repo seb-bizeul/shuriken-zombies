@@ -1,12 +1,10 @@
 // @flow
-import { takeEvery, put, select, all } from 'redux-saga/effects'
-import { eventChannel, END } from 'redux-saga'
+import { takeEvery, put, select } from 'redux-saga/effects'
 import type { Saga } from 'redux-saga'
 
 import loop from '../loop'
 import * as shurikenActions from './actions'
 import * as shurikenSelectors from './selectors'
-import type { Shoot, Shuriken } from './types'
 
 export function* updateUI(): Saga<*> {
   const shurikens = yield select(shurikenSelectors.getAll)
