@@ -2,8 +2,6 @@
 import { takeEvery, put, select, all } from 'redux-saga/effects'
 import { eventChannel, END } from 'redux-saga'
 import type { Saga } from 'redux-saga'
-import { Dimensions } from 'react-native'
-import {batchActions, enableBatching, batchDispatchMiddleware} from 'redux-batched-actions'
 
 import loop from '../loop'
 import * as shurikenActions from './actions'
